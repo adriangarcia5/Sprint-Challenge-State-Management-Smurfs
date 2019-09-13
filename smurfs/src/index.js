@@ -9,4 +9,6 @@ import {Provider} from 'react-redux';
 const store = createStore(reducer)
 
 ReactDOM.render(
-<App store = {store }/>, document.getElementById("root"));
+<Provider store = {store }><App /></Provider>
+, document.getElementById("root"));
+
