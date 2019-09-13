@@ -1,20 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner' 
-import Smurfs from './Smurfs'
+import Smurfs from './Smurfs';
+import {getData} from '../action'
 
 const List = props => {
     return (<>
     <h1>Look at these Smurfs</h1>
     <h1>{props.test}
     </h1>
-    <button onClick={props.test}>
+    <button onClick={props.getData}>
         {props.isLoading ?
         <Loader
         type="Puff"
         color="#00BFFF"
         height="100"
-        width="100" /> : 'Get info'
+        width="100" /> : ('Get info')
         }
         </button>
         {props.webcams && props.chars.map(info => (
@@ -32,4 +33,4 @@ const mapStateToProps = state => {
   } ;
   
 
-export default connect(mapStateToProps,{})(List);
+export default connect(mapStateToProps,{getData})(List);
